@@ -1,0 +1,74 @@
+* {
+    height: 100%;
+}
+
+body {
+    background-color: aqua;
+    height: 100%;
+}
+
+.main {
+    outline: 2px solid wheat;
+    background-color: black;
+    width: 300px;
+    height: 400px;
+    display: flex;
+    flex-flow: column nowrap;
+    place-content: center flex-start;
+    padding: 8px;
+}
+
+.output {
+    outline: 2px solid red;
+    /* flex: 1; */
+    display: flex;
+    flex-flow: column nowrap;
+    height: 30%;
+    padding: 8px;
+}
+
+.auxscreen {
+    outline: 2px solid pink;
+    /* flex: 1; */
+    height: 30%;
+}
+
+.mainscreen {
+    outline: 2px solid rosybrown;
+    /* flex: 1; */
+    height: 70%;
+}
+
+.input {
+    outline: 2px solid green;
+    /* flex: 1; */
+    display: flex;
+    height: 70%;
+    padding: 8px;
+}
+
+.keypad {
+    outline: 2px solid blue;
+    /* flex: 1; */
+    display: flex;
+    flex-flow: column nowrap;
+    width: 80%;
+}
+
+.auxkeys {
+    outline: 2px solid yellow;
+    /* flex: 1; */
+    height: 20%;
+}
+
+.mainkeys {
+    outline: 2px solid yellowgreen;
+    /* flex: 1; */
+    height: 80%;
+}
+
+.opkeys {
+    outline: 2px solid lightblue;
+    /* flex: 1; */
+    width: 20%;
+}
