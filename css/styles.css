@@ -7,11 +7,25 @@ body {
     height: 100%;
 }
 
+@font-face{
+    font-family:'digital-7';
+    src: url('fonts/digital-7.ttf');
+}
+
 .main {
     outline: 2px solid wheat;
     background-color: black;
-    width: 300px;
-    height: 400px;
+    margin: 0 auto;
+    /* height: 50vw;
+    min-height: 50vw;
+    width: calc(50vw * 0.75); */
+    /* width: 35vw; */
+    /* height: calc(35vw * (4/3)); */
+    /* max-height: 100vh; */
+    height: 90vh;
+    width: calc(90vh * (3/4));      /* aspect ratio of 4:3 */
+    min-height: 450px;
+    min-width: 350px;
     display: flex;
     flex-flow: column nowrap;
     place-content: center flex-start;
@@ -29,14 +43,20 @@ body {
 
 .auxscreen {
     outline: 2px solid pink;
-    /* flex: 1; */
+    background-color: gray;
     height: 30%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 8px;
 }
 
 .mainscreen {
     outline: 2px solid rosybrown;
-    /* flex: 1; */
+    background-color: lightgray;
     height: 70%;
+    display: flex;
+    justify-content: flex-end;
+    padding: 8px;
 }
 
 .input {
@@ -71,4 +91,39 @@ body {
     outline: 2px solid lightblue;
     /* flex: 1; */
     width: 20%;
+}
+
+p.auxOutput {
+    margin: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    place-content: flex-end flex-end;
+    /* font-size: 6.2vh; */
+    font-size: clamp( 42px, 10vh, 8vh);
+    /* font-size: calc( 0.1em + 8.2vh); */
+    font-family: digital-7;
+    color: black;
+}
+
+p.mainOutput {
+    margin: 0;
+    display: flex;
+    flex-flow: column nowrap;
+    place-content: flex-end flex-end;
+    /* font-size: 12vh; */
+    font-size: clamp( 84px, 20vh, 16vh);
+    /* font-size: calc( 0.5em + 8.2vh); */
+    font-family: digital-7;
+    color: black;
+}
+
+.footer {
+    margin-top: 8px;
+    height: 10vh;
+    text-align: center;
+}
+
+.footer p {
+    font-size: 2.5vh;
+    vertical-align: bottom;
 }
