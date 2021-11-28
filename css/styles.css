@@ -13,8 +13,9 @@ body {
 }
 
 .main {
-    outline: 2px solid wheat;
-    background-color: black;
+    background-color: rgb(1, 1, 49);
+    border: none;
+    border-radius: 10px;
     margin: 0 auto;
     /* height: 50vw;
     min-height: 50vw;
@@ -29,11 +30,14 @@ body {
     display: flex;
     flex-flow: column nowrap;
     place-content: center flex-start;
-    padding: 8px;
+    gap: 8px;
+    padding: 16px;
 }
 
 .output {
-    outline: 2px solid red;
+    /* outline: 2px solid red; */
+    background-color: darkblue;
+    border-radius: 8px;
     /* flex: 1; */
     display: flex;
     flex-flow: column nowrap;
@@ -42,7 +46,7 @@ body {
 }
 
 .auxscreen {
-    outline: 2px solid pink;
+    /* outline: 2px solid pink; */
     background-color: gray;
     height: 30%;
     display: flex;
@@ -51,7 +55,7 @@ body {
 }
 
 .mainscreen {
-    outline: 2px solid rosybrown;
+    /* outline: 2px solid rosybrown; */
     background-color: lightgray;
     height: 70%;
     display: flex;
@@ -60,48 +64,57 @@ body {
 }
 
 .input {
-    outline: 2px solid green;
+    /* outline: 2px solid green; */
+    background-color: darkblue;
+    border: none;
+    border-radius: 8px;
     /* flex: 1; */
     display: flex;
     height: 70%;
     padding: 8px;
+    gap: 8px;
 }
 
 .keypad {
-    outline: 2px solid blue;
+    /* outline: 2px solid blue; */
     /* flex: 1; */
     display: flex;
     flex-flow: column nowrap;
     width: 75%;
+    gap: 4px;
 }
 
 .auxkeys {
-    outline: 2px solid yellow;
+    /* outline: 2px solid yellow; */
     /* flex: 1; */
     height: 20%;
     display: flex;
     flex-flow: row nowrap;
     justify-content: center;
+    gap: 2px;
 }
 
 .mainkeys {
-    outline: 2px solid yellowgreen;
+    /* outline: 2px solid yellowgreen; */
     /* flex: 1; */
     height: 80%;
     display: flex;
     flex-flow: column nowrap;
+    gap: 2px;
 }
 
 .keyrow {
     display: flex;
+    gap: 2px;
 }
 
 .opkeys {
-    outline: 2px solid lightblue;
+    /* outline: 2px solid lightblue; */
     /* flex: 1; */
     width: 25%;
     display: flex;
     flex-flow: column nowrap;
+    gap: 2px;
 }
 
 p.auxOutput {
