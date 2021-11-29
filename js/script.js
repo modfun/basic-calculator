@@ -101,7 +101,9 @@ function calculate( l, event) {
             }
             break;
         case '.sign':
-            console.log('sign');
+            if (!isSigned()) mainOutput.textContent = '-' + mainOutput.textContent;
+            else mainOutput.textContent = mainOutput.textContent.slice( 1);
+            console.log('sign: ' + mainOutput.textContent);
             break;
         case '.nil':
             console.log('nil');
@@ -186,7 +188,7 @@ function createKeypad( target, buttons, color) {
 
 function outputNumber( number) {
 
-    let max = 24;
+    let max = 20;
     let maximumWidth = mainscreen.clientWidth - (mainscreen.clientWidth *(max/100));
     if ((maximumWidth) < mainOutput.clientWidth) {
         console.log('full output main');
@@ -292,6 +294,10 @@ function isDecimal() {
         if ( text.charAt(i) === '.') return true;
     }
     return false;
+}
+
+function isSigned() {
+    if ( mainOutput.textContent.charAt(0) === '-') return true;
 }
 
 function add( operandOne, operandTwo) {
