@@ -21,7 +21,7 @@ mainOutput.textContent = '0'; //8 digit max
 mainscreen.appendChild(mainOutput);
 
 { const auxButtons = [
-    { '.allClear': 'AC'}, { '.clear': 'C'}, { '.power': 'x\u02b8'},
+    { '.allClear': 'AC'}, { '.clear': '\u2190'}, { '.power': 'x\u02b8'},
     { '.percentage': '%'},
 ];
 createButtons( auxkeys, auxButtons, true, 'gray');
@@ -45,8 +45,10 @@ createButtons( opkeys, opButtons, false, 'gray');
 };
 
 let calculateRef = calculate.bind(null, true);
+let calculateKeyRef = calculateKey.bind(null, true);
 
 input.addEventListener( 'click', calculateRef);
+document.body.addEventListener( 'keyup', calculateKeyRef);
 
 
 
@@ -90,10 +92,10 @@ function calculate( l, event) {
             console.log('one');
             outputNumber( '1');
             break;
-        case '.nil':
-            console.log('nil');
-            outputNumber( 0);
-            break;
+        // case '.nil':
+        //     console.log('nil');
+        //     outputNumber( 0);
+        //     break;
         case '.decimal':
             console.log('decimal');
             if (!isDecimal()) {
@@ -110,15 +112,15 @@ function calculate( l, event) {
         case '.nil':
             console.log('nil');
             if (mainOutput.textContent !== '0') {
-                outputNumber( 9);
+                outputNumber( 0);
             }
             break;
         case '.clear':
             console.log('clear');
-            if (mainOutput.textContent.length === 1) {
+            if (mainOutput.textContent.length == 1) {
                 mainOutput.textContent = '0';
             }
-            if (mainOutput.textContent.length === 2 && mainOutput.textContent.charAt(0) === '-') {
+            else if (mainOutput.textContent.length === 2 && mainOutput.textContent.charAt(0) === '-') {
                 mainOutput.textContent = '0';
             }
             else mainOutput.textContent = mainOutput.textContent.slice(0, mainOutput.textContent.length -1);
@@ -160,6 +162,123 @@ function calculate( l, event) {
             console.log('out of keys');
             break;
     }
+}
+
+function calculateKey( l, event) {
+    console.log( "[operate] event on: " + event.key);
+    switch (event.key) {
+        case '9':
+            console.log('nine');
+            outputNumber( 9);
+            break;
+        case '8':
+            console.log('eight');
+            outputNumber( 8);
+            break;
+        case '7':
+            console.log('seven');
+            outputNumber( 7);
+            break;
+        case '6':
+            console.log('six');
+            outputNumber( 6);
+            break;
+        case '5':
+            console.log('five');
+            outputNumber( 5);
+            break;
+        case '4':
+            console.log('four');
+            outputNumber( 4);
+            break;
+        case '3':
+            console.log('three');
+            outputNumber( 3);
+            break;
+        case '2':
+            console.log('two');
+            outputNumber( 2);
+            break;
+        case '1':
+            console.log('one');
+            outputNumber( '1');
+            break;
+        // case '0':
+        //     console.log('nil');
+        //     outputNumber( 0);
+        //     break;
+        case '.':
+            console.log('decimal');
+            if (!isDecimal()) {
+                outputNumber( '.');
+            }
+            break;
+        // sign arnot supported yet
+        // case '.sign':
+        //     if ( Number(mainOutput.textContent) !== 0) {
+        //         if (!isSigned()) mainOutput.textContent = '-' + mainOutput.textContent;
+        //         else mainOutput.textContent = mainOutput.textContent.slice( 1);
+        //     }
+        //     console.log('sign: ' + mainOutput.textContent);
+        //     break;
+        case '.nil':
+            console.log('0');
+            if (mainOutput.textContent !== '0') {
+                outputNumber( 0);
+            }
+            break;
+        case 'Backspace':
+            console.log('clear');
+            if (mainOutput.textContent.length == 1) {
+                mainOutput.textContent = '0';
+            }
+            else if (mainOutput.textContent.length === 2 && mainOutput.textContent.charAt(0) === '-') {
+                mainOutput.textContent = '0';
+            }
+            else mainOutput.textContent = mainOutput.textContent.slice(0, mainOutput.textContent.length -1);
+            break;
+        case 'Delete':
+            console.log('allclear');
+            mainOutput.textContent = '0';
+            auxOutput.textContent = '0';
+            break;
+        case '^':
+            console.log('power');
+            outputOperator('^');
+            break;
+        case '%':
+            console.log('percentage');
+            outputOperator('%');
+            break;
+        case '/':
+            console.log('divide');
+            outputOperator('/');
+            break;
+        case '*':
+            console.log('multiply');
+            outputOperator('x');
+            break;
+        case '-':
+            console.log('subtract');
+            outputOperator('-');
+            break;
+        case '+':
+            console.log('add');
+            outputOperator('+');
+            break;
+        case '=':
+            console.log('answer');
+            outputOperator('=');
+            break;
+        case 'Enter':
+            console.log('answer');
+            outputOperator('=');
+            break;
+        default:
+            console.log('out of keys');
+            break;
+    }
+    event.preventDefault();
 }
 
 function createButtons( target, buttons, isHorizontal, color) {
