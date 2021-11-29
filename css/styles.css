@@ -12,6 +12,11 @@ body {
     src: url('fonts/digital-7.ttf');
 }
 
+@font-face{
+    font-family:'led_counter-7';
+    src: url('fonts/led_counter-7.ttf');
+}
+
 .main {
     background-color: rgb(1, 1, 49);
     border: none;
@@ -123,9 +128,10 @@ span.auxOutput {
     flex-flow: column nowrap;
     place-content: flex-end flex-end;
     /* font-size: 6.2vh; */
-    font-size: clamp( 36px, 10vh, 7.6vh);
+    font-size: clamp( 30px, 10vh, 7.2vh);
     /* font-size: calc( 0.1em + 8.2vh); */
-    font-family: digital-7;
+    /* font-family: digital-7; */
+    font-family: led_counter-7;
     color: black;
 }
 
@@ -135,9 +141,10 @@ span.mainOutput {
     flex-flow: column nowrap;
     place-content: flex-end flex-end;
     /* font-size: 12vh; */
-    font-size: clamp( 74px, 20vh, 14vh);
+    font-size: clamp( 56px, 20vh, 11vh);
     /* font-size: calc( 0.5em + 8.2vh); */
-    font-family: digital-7;
+    /* font-family: digital-7; */
+    font-family: led_counter-7;
     color: black;
 }
 

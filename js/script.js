@@ -88,7 +88,7 @@ function calculate( l, event) {
             break;
         case '.one':
             console.log('one');
-            outputNumber( ' 1');
+            outputNumber( '1');
             break;
         case '.nil':
             console.log('nil');
