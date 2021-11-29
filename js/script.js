@@ -290,6 +290,7 @@ function isDecimal() {
     for ( let i = 0; i < text.length; ++i) {
         if ( text.charAt(i) === '.') return true;
     }
+    return false;
 }
 
 function add( operandOne, operandTwo) {
