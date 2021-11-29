@@ -117,25 +117,25 @@ body {
     gap: 2px;
 }
 
-p.auxOutput {
+span.auxOutput {
     margin: 0;
     display: flex;
     flex-flow: column nowrap;
     place-content: flex-end flex-end;
     /* font-size: 6.2vh; */
-    font-size: clamp( 42px, 10vh, 8vh);
+    font-size: clamp( 36px, 10vh, 7.6vh);
     /* font-size: calc( 0.1em + 8.2vh); */
     font-family: digital-7;
     color: black;
 }
 
-p.mainOutput {
+span.mainOutput {
     margin: 0;
     display: flex;
     flex-flow: column nowrap;
     place-content: flex-end flex-end;
     /* font-size: 12vh; */
-    font-size: clamp( 84px, 20vh, 16vh);
+    font-size: clamp( 74px, 20vh, 14vh);
     /* font-size: calc( 0.5em + 8.2vh); */
     font-family: digital-7;
     color: black;
@@ -144,10 +144,14 @@ p.mainOutput {
 button {
     font-size: clamp( 30px, 10vh, 6vh);
     font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    border: none;
 }
 
 button:hover {
-    color: 'gray';
+    color: 'gold';
+    transition: 0.5s;
+    cursor: pointer;
+    background-color: darkcyan;
 }
 
 .footer {
@@ -159,4 +163,12 @@ button:hover {
 .footer p {
     font-size: 2.5vh;
     vertical-align: bottom;
+}
+
+#Test {
+    position: absolute;
+    visibility: hidden;
+    height: auto;
+    width: auto;
+    white-space: nowrap;
 }
