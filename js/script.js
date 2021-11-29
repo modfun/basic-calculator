@@ -44,10 +44,6 @@ const opButtons = [
 createButtons( opkeys, opButtons, false, 'gray');
 };
 
-data = {
-    decimalState: false,
-};
-
 let calculateRef = calculate.bind(null, true);
 
 input.addEventListener( 'click', calculateRef);
@@ -100,9 +96,8 @@ function calculate( l, event) {
             break;
         case '.decimal':
             console.log('decimal');
-            if (!data.decimalState) {
+            if (!isDecimal()) {
                 outputNumber( '.');
-                data.decimalState = true;
             }
             break;
         case '.sign':
@@ -313,6 +308,13 @@ function operate( operator, operandOne, operandTwo) {
     if ( ( result + '').length > 8) result = result.toExponential(3); 
     console.log('result = ' + result);
     return result;
+}
+
+function isDecimal() {
+    const text = mainOutput.textContent;
+    for ( let i = 0; i < text.length; ++i) {
+        if ( text.charAt(i) === '.') return true;
+    }
 }
 
 function add( operandOne, operandTwo) {
