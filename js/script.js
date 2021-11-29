@@ -275,6 +275,7 @@ function operate( operator, operandOne, operandTwo) {
         case '%':
             console.log('Percentge');
            result = percentage( Number(operandOne));
+           console.log( '% ' + result);
             break;
         default:
             break;
@@ -311,7 +312,7 @@ function divide( operandOne, operandTwo) {
 }
 
 function percentage( val) {
-    return Math.trunc((val / 100));
+    return (val / 100);
 }
 
 function power( operandOne, operandTwo) {
