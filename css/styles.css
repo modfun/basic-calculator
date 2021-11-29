@@ -22,12 +22,6 @@ body {
     border: none;
     border-radius: 10px;
     margin: 0 auto;
-    /* height: 50vw;
-    min-height: 50vw;
-    width: calc(50vw * 0.75); */
-    /* width: 35vw; */
-    /* height: calc(35vw * (4/3)); */
-    /* max-height: 100vh; */
     height: 90vh;
     width: calc(90vh * (3/4));      /* aspect ratio of 4:3 */
     min-height: 450px;
@@ -43,7 +37,6 @@ body {
     /* outline: 2px solid red; */
     background-color: darkblue;
     border-radius: 8px;
-    /* flex: 1; */
     display: flex;
     flex-flow: column nowrap;
     height: 30%;
@@ -73,7 +66,6 @@ body {
     background-color: darkblue;
     border: none;
     border-radius: 8px;
-    /* flex: 1; */
     display: flex;
     height: 70%;
     padding: 8px;
@@ -82,7 +74,6 @@ body {
 
 .keypad {
     /* outline: 2px solid blue; */
-    /* flex: 1; */
     display: flex;
     flex-flow: column nowrap;
     width: 75%;
@@ -91,7 +82,6 @@ body {
 
 .auxkeys {
     /* outline: 2px solid yellow; */
-    /* flex: 1; */
     height: 20%;
     display: flex;
     flex-flow: row nowrap;
@@ -101,7 +91,6 @@ body {
 
 .mainkeys {
     /* outline: 2px solid yellowgreen; */
-    /* flex: 1; */
     height: 80%;
     display: flex;
     flex-flow: column nowrap;
@@ -115,7 +104,6 @@ body {
 
 .opkeys {
     /* outline: 2px solid lightblue; */
-    /* flex: 1; */
     width: 25%;
     display: flex;
     flex-flow: column nowrap;
@@ -127,7 +115,6 @@ span.auxOutput {
     display: flex;
     flex-flow: column nowrap;
     place-content: flex-end flex-end;
-    /* font-size: 6.2vh; */
     font-size: clamp( 30px, 10vh, 7.2vh);
     /* font-size: calc( 0.1em + 8.2vh); */
     /* font-family: digital-7; */
@@ -140,7 +127,6 @@ span.mainOutput {
     display: flex;
     flex-flow: column nowrap;
     place-content: flex-end flex-end;
-    /* font-size: 12vh; */
     font-size: clamp( 56px, 20vh, 11vh);
     /* font-size: calc( 0.5em + 8.2vh); */
     /* font-family: digital-7; */
@@ -165,9 +151,16 @@ button:hover {
     margin-top: 8px;
     height: 10vh;
     text-align: center;
+    font-size: 2.5vh;
 }
 
-.footer p {
-    font-size: 2.5vh;
-    vertical-align: bottom;
+a:link, i {
+    color: black;
+    padding: 4px;
+}
+
+i:hover {
+    color: gray;
+    transition: 0.4s;
+    cursor: pointer;
 }
