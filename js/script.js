@@ -206,31 +206,6 @@ function outputNumber( number) {
     console.log(mainOutput.textContent);
 }
 
-// function outputOperator( op) {
-//     let max = 24;
-//     let maximumWidth = auxscreen.clientWidth - ( auxscreen.clientWidth * (max/100));
-//     if ( maximumWidth < auxOutput.clientWidth) {
-//         console.log('full output aux');
-//         return;
-//     }
-//     if ( auxOutput.textContent.length === 1) {
-//         auxOutput.textContent = mainOutput.textContent + op + '';
-//         mainOutput.textContent = '0';
-//         return;
-//     }
-//     if ( op === '=') {
-//         let opOne = auxOutput.textContent.slice(0, auxOutput.textContent.length-1);
-//         let oldOp = auxOutput.textContent.slice(auxOutput.textContent.length-1);
-//         let opTwo = mainOutput.textContent;
-//         console.log( 'op1: ' + opOne + ' op2: ' + opTwo);
-//         mainOutput.textContent = operate( oldOp, opOne, opTwo);
-//         return;
-//     }
-//     auxOutput.textContent = mainOutput.textContent + op + '';
-//     mainOutput.textContent = '0';
-//     console.log(auxOutput.textContent);
-// }
-
 function outputOperator( op) {
     if ( mainOutput.textContent.length > 0 && mainOutput.textContent !== '0') {
         if ( auxOutput.textContent.length > 0 && auxOutput.textContent !== '0') {
