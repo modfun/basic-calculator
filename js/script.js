@@ -50,54 +50,37 @@ let calculateKeyRef = calculateKey.bind(null, true);
 input.addEventListener( 'click', calculateRef);
 document.body.addEventListener( 'keyup', calculateKeyRef);
 
-
-
-//Procedures
 function calculate( l, event) {
-    console.log( "[operate] event on: " + event.target + ", class: " + event.target.className);
+    // console.log( "[operate] event on: " + event.target + ", class: " + event.target.className);
     switch (event.target.className) {
         case '.nine':
-            console.log('nine');
             outputNumber( 9);
             break;
         case '.eight':
-            console.log('eight');
             outputNumber( 8);
             break;
         case '.seven':
-            console.log('seven');
             outputNumber( 7);
             break;
         case '.six':
-            console.log('six');
             outputNumber( 6);
             break;
         case '.five':
-            console.log('five');
             outputNumber( 5);
             break;
         case '.four':
-            console.log('four');
             outputNumber( 4);
             break;
         case '.three':
-            console.log('three');
             outputNumber( 3);
             break;
         case '.two':
-            console.log('two');
             outputNumber( 2);
             break;
         case '.one':
-            console.log('one');
             outputNumber( '1');
             break;
-        // case '.nil':
-        //     console.log('nil');
-        //     outputNumber( 0);
-        //     break;
         case '.decimal':
-            console.log('decimal');
             if (!isDecimal()) {
                 outputNumber( '.');
             }
@@ -107,16 +90,14 @@ function calculate( l, event) {
                 if (!isSigned()) mainOutput.textContent = '-' + mainOutput.textContent;
                 else mainOutput.textContent = mainOutput.textContent.slice( 1);
             }
-            console.log('sign: ' + mainOutput.textContent);
+            // console.log('sign: ' + mainOutput.textContent);
             break;
         case '.nil':
-            console.log('nil');
             if (mainOutput.textContent !== '0') {
                 outputNumber( 0);
             }
             break;
         case '.clear':
-            console.log('clear');
             if (mainOutput.textContent.length == 1) {
                 mainOutput.textContent = '0';
             }
@@ -126,89 +107,68 @@ function calculate( l, event) {
             else mainOutput.textContent = mainOutput.textContent.slice(0, mainOutput.textContent.length -1);
             break;
         case '.allClear':
-            console.log('allclear');
             mainOutput.textContent = '0';
             auxOutput.textContent = '0';
             break;
         case '.power':
-            console.log('power');
             outputOperator('^');
             break;
         case '.percentage':
-            console.log('percentage');
             outputOperator('%');
             break;
         case '.divide':
-            console.log('divide');
             outputOperator('/');
             break;
         case '.multiply':
-            console.log('multiply');
             outputOperator('x');
             break;
         case '.subtract':
-            console.log('subtract');
             outputOperator('-');
             break;
         case '.add':
-            console.log('add');
             outputOperator('+');
             break;
         case '.answer':
-            console.log('answer');
             outputOperator('=');
             break;
         default:
-            console.log('out of keys');
+            // console.log('out of keys');
             break;
     }
+    event.preventDefault();
 }
 
 function calculateKey( l, event) {
-    console.log( "[operate] event on: " + event.key);
+    // console.log( "[operate] event on: " + event.key);
     switch (event.key) {
         case '9':
-            console.log('nine');
             outputNumber( 9);
             break;
         case '8':
-            console.log('eight');
             outputNumber( 8);
             break;
         case '7':
-            console.log('seven');
             outputNumber( 7);
             break;
         case '6':
-            console.log('six');
             outputNumber( 6);
             break;
         case '5':
-            console.log('five');
             outputNumber( 5);
             break;
         case '4':
-            console.log('four');
             outputNumber( 4);
             break;
         case '3':
-            console.log('three');
             outputNumber( 3);
             break;
         case '2':
-            console.log('two');
             outputNumber( 2);
             break;
         case '1':
-            console.log('one');
             outputNumber( '1');
             break;
-        // case '0':
-        //     console.log('nil');
-        //     outputNumber( 0);
-        //     break;
         case '.':
-            console.log('decimal');
             if (!isDecimal()) {
                 outputNumber( '.');
             }
@@ -222,13 +182,11 @@ function calculateKey( l, event) {
         //     console.log('sign: ' + mainOutput.textContent);
         //     break;
         case '.nil':
-            console.log('0');
             if (mainOutput.textContent !== '0') {
                 outputNumber( 0);
             }
             break;
         case 'Backspace':
-            console.log('clear');
             if (mainOutput.textContent.length == 1) {
                 mainOutput.textContent = '0';
             }
@@ -238,44 +196,35 @@ function calculateKey( l, event) {
             else mainOutput.textContent = mainOutput.textContent.slice(0, mainOutput.textContent.length -1);
             break;
         case 'Delete':
-            console.log('allclear');
             mainOutput.textContent = '0';
             auxOutput.textContent = '0';
             break;
         case '^':
-            console.log('power');
             outputOperator('^');
             break;
         case '%':
-            console.log('percentage');
             outputOperator('%');
             break;
         case '/':
-            console.log('divide');
             outputOperator('/');
             break;
         case '*':
-            console.log('multiply');
             outputOperator('x');
             break;
         case '-':
-            console.log('subtract');
             outputOperator('-');
             break;
         case '+':
-            console.log('add');
             outputOperator('+');
             break;
         case '=':
-            console.log('answer');
             outputOperator('=');
             break;
         case 'Enter':
-            console.log('answer');
             outputOperator('=');
             break;
         default:
-            console.log('out of keys');
+            // console.log('out of keys');
             break;
     }
     event.preventDefault();
@@ -315,7 +264,7 @@ function outputNumber( number) {
     let max = 20;
     let maximumWidth = mainscreen.clientWidth - (mainscreen.clientWidth *(max/100));
     if ((maximumWidth) < mainOutput.clientWidth) {
-        console.log('full output main');
+        // console.log('full output main');
         return;
     }
     if ( mainOutput.textContent.length === 1) {
@@ -324,7 +273,6 @@ function outputNumber( number) {
                 mainOutput.textContent += number + '';
             }
             else mainOutput.textContent = number + '';
-            // console.log( 'BASE');
             return;
         }
     }
@@ -338,7 +286,7 @@ function outputNumber( number) {
         }
     }
     mainOutput.textContent += number + '';
-    console.log(mainOutput.textContent);
+    // console.log(mainOutput.textContent);
 }
 
 function outputOperator( op) {
@@ -362,7 +310,7 @@ function outputOperator( op) {
                     auxOutput.textContent = '0';
                     break;
                 default:
-                    console.log('[outputOpertor] something wrong x1');
+                    // console.log('[outputOpertor] something wrong x1');
             }
         } else {
             switch ( op) {
@@ -374,51 +322,44 @@ function outputOperator( op) {
                     mainOutput.textContent = operate( op, mainOutput.textContent);
                     break;
                 default:
-                    console.log('[outputOpertor] something wrong x2');
+                    // console.log('[outputOpertor] something wrong x2');
             }
         }
     } else {
         //if mainOutput empty
-        console.log("zero_place");
+        return;
     }
 }
 
 function operate( operator, operandOne, operandTwo) {
-    console.log( "Operating..... " + operandOne + ' and ' + operandTwo);
-    console.log(operator);
+    // console.log( "Operating..... " + operandOne + ' and ' + operandTwo);
+    // console.log(operator);
     let result = 0;
     switch (operator) {
         case '^':
-            console.log('Power');
            result = power( Number(operandOne), Number(operandTwo)); 
             break;
         case '/':
-            console.log('divide');
            result = divide( Number(operandOne), Number(operandTwo)); 
             break;
         case 'x':
-            console.log('Multiply');
            result = multiply( Number(operandOne), Number(operandTwo)); 
             break;
         case '-':
-            console.log('Sbtract');
            result = subtract( Number(operandOne), Number(operandTwo)); 
             break;
         case '+':
-            console.log('Add');
            result = add( Number(operandOne), Number(operandTwo)); 
             break;
         case '%':
-            console.log('Percentge');
            result = percentage( Number(operandOne));
-           console.log( '% ' + result);
             break;
         default:
             break;
     }
     result = Math.round( (result + Number.EPSILON) * 10**4) / 10**4;
     if ( ( result + '').length > 8) result = result.toExponential(3); 
-    console.log('result = ' + result);
+    // console.log('result = ' + result);
     return result;
 }
 
@@ -443,7 +384,6 @@ function subtract( operandOne, operandTwo) {
 }
 
 function multiply( operandOne, operandTwo) {
-    console.log( 'Mul ' + operandOne + ' * ' + operandTwo);
     return operandOne * operandTwo;
 }
 
