@@ -164,11 +164,3 @@ button:hover {
     font-size: 2.5vh;
     vertical-align: bottom;
 }
-
-#Test {
-    position: absolute;
-    visibility: hidden;
-    height: auto;
-    width: auto;
-    white-space: nowrap;
-}
