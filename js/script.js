@@ -101,8 +101,10 @@ function calculate( l, event) {
             }
             break;
         case '.sign':
-            if (!isSigned()) mainOutput.textContent = '-' + mainOutput.textContent;
-            else mainOutput.textContent = mainOutput.textContent.slice( 1);
+            if ( Number(mainOutput.textContent) !== 0) {
+                if (!isSigned()) mainOutput.textContent = '-' + mainOutput.textContent;
+                else mainOutput.textContent = mainOutput.textContent.slice( 1);
+            }
             console.log('sign: ' + mainOutput.textContent);
             break;
         case '.nil':
@@ -114,6 +116,9 @@ function calculate( l, event) {
         case '.clear':
             console.log('clear');
             if (mainOutput.textContent.length === 1) {
+                mainOutput.textContent = '0';
+            }
+            if (mainOutput.textContent.length === 2 && mainOutput.textContent.charAt(0) === '-') {
                 mainOutput.textContent = '0';
             }
             else mainOutput.textContent = mainOutput.textContent.slice(0, mainOutput.textContent.length -1);
@@ -204,13 +209,22 @@ function outputNumber( number) {
             return;
         }
     }
+    if ( mainOutput.textContent.length === 2) {
+        if ( mainOutput.textContent === '-0') {
+            if ( number === '.') {
+                mainOutput.textContent += number + '';
+            }
+            else mainOutput.textContent = number + '';
+            return;
+        }
+    }
     mainOutput.textContent += number + '';
     console.log(mainOutput.textContent);
 }
 
 function outputOperator( op) {
-    if ( mainOutput.textContent.length > 0 && mainOutput.textContent !== '0') {
-        if ( auxOutput.textContent.length > 0 && auxOutput.textContent !== '0') {
+    if ( mainOutput.textContent.length > 0 && mainOutput.textContent !== '0' && mainOutput.textContent != '-0' && Number(mainOutput.textContent) != 0) {
+        if ( auxOutput.textContent.length > 0 && auxOutput.textContent !== '0' && mainOutput.textContent != '-0') {
             let prevOperator = auxOutput.textContent.slice(auxOutput.textContent.length - 1);
             let operandOne = auxOutput.textContent.slice( 0, auxOutput.textContent.length - 1);
             let operandTwo = mainOutput.textContent;
@@ -246,6 +260,7 @@ function outputOperator( op) {
         }
     } else {
         //if mainOutput empty
+        console.log("zero_place");
     }
 }
 
